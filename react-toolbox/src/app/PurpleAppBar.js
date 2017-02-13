@@ -4,7 +4,7 @@ import Logo from './Logo.js';
 import theme from './PurpleAppBar.scss';
 
 const PurpleAppBar = ({ children, ...other }) => (
-  <AppBar {...other}>
+  <AppBar {...other} theme={theme}>
     <Logo /> App Example
     {children}
   </AppBar>

@@ -22,7 +22,7 @@ const muiTheme = getMuiTheme({
   },
   appBar: {
     height: 50,
-  },
+  }
 });
 
 ReactDOM.render(
