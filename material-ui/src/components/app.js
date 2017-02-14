@@ -6,6 +6,8 @@ import Drawer from 'material-ui/Drawer';
 import IconButton from 'material-ui/IconButton';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
+
 import Paper from 'material-ui/Paper';
 import FontIcon from 'material-ui/FontIcon';
 
@@ -13,7 +15,7 @@ export default class App extends Component {
 
   constructor(props){
     super(props);
-    this.state = { open: false };
+    this.state = { open: false, count: 0 };
     this.handleToggle = this.handleToggle.bind(this);
   }
 
@@ -23,19 +25,27 @@ export default class App extends Component {
     this.setState({ open: !this.state.open });
   }
 
+  onAddToCart(e) {
+    console.log('add to cart', this.state.count);
+    this.setState({ count: this.state.count + 1})
+  }
+
   render() {
     return (
       <div>
-        <Drawer open={this.state.open} docked={false} width={100}>
+        <Drawer open={this.state.open} docked={false} >
           <AppBar></AppBar>
         </Drawer>
         <AppBar
           iconElementLeft={
-              <IconButton onClick={this.handleToggle}>
-                </IconButton>
-              }
-              title="LET'SPLAY"
-              />
+            <IconButton onClick={this.handleToggle}>
+            </IconButton>
+          }
+          title="LET'SPLAY"
+          iconElementRight={
+            <div><IconButton iconClassName="fa fa-shopping-cart" />{this.state.count}</div>
+          }
+          />
         <div className="container" style={{ textAlign: 'center' }}>
           <Paper style={{  height: '300px', padding: '90px 30px', marginTop: '30px' }} zDepth={2}
                  className="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
@@ -49,6 +59,13 @@ export default class App extends Component {
               <RaisedButton className="pull-xs-center" label="Continue" primary={true} />
               <FontIcon className="glyphicon glyphicon-remove" />
               <RaisedButton className="pull-xs-center" secondary={true} icon={<FontIcon className="glyphicon glyphicon-remove" />} />
+            </div>
+            <br />
+            <div>
+              <RaisedButton className="pull-xs-center"
+                label="Add to Cart"
+                onClick={this.onAddToCart.bind(this)}
+               />
             </div>
           </Paper>
         </div>
