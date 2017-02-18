@@ -10,6 +10,7 @@ import FlatButton from 'material-ui/FlatButton';
 
 import Paper from 'material-ui/Paper';
 import FontIcon from 'material-ui/FontIcon';
+import Badge from 'material-ui/Badge';
 
 export default class App extends Component {
 
@@ -27,7 +28,7 @@ export default class App extends Component {
 
   onAddToCart(e) {
     console.log('add to cart', this.state.count);
-    this.setState({ count: this.state.count + 1})
+    this.setState({ count: this.state.count + 1});
   }
 
   render() {
@@ -38,15 +39,22 @@ export default class App extends Component {
         </Drawer>
         <AppBar
           iconElementLeft={
-            <IconButton onClick={this.handleToggle}>
-            </IconButton>
-          }
-          title="LET'SPLAY"
-          iconElementRight={
-            <div><IconButton iconClassName="fa fa-shopping-cart" />{this.state.count}</div>
-          }
-          />
+              <IconButton onClick={this.handleToggle}>
+                </IconButton>
+              }
+              title="LET'SPLAY"
+              iconElementRight={
+                  <Badge
+                      badgeContent={this.state.count}
+                      secondary={true}
+                      badgeStyle={{}}
+                      style={{padding: 0, margin: 0}}>
+                      <IconButton iconClassName="fa fa-shopping-cart" style={{margin: 0, padding: 0}}/>
+                    </Badge>
+                  }
+                  />
         <div className="container" style={{ textAlign: 'center' }}>
+          
           <Paper style={{  height: '300px', padding: '90px 30px', marginTop: '30px' }} zDepth={2}
                  className="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
             <div>
@@ -63,10 +71,11 @@ export default class App extends Component {
             <br />
             <div>
               <RaisedButton className="pull-xs-center"
-                label="Add to Cart"
-                onClick={this.onAddToCart.bind(this)}
-               />
+                            label="Add to Cart"
+                            onClick={this.onAddToCart.bind(this)}
+                            />
             </div>
+
           </Paper>
         </div>
       </div>
