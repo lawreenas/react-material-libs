@@ -17,8 +17,8 @@ injectTapEventPlugin();
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 const muiTheme = getMuiTheme({
   palette: {
-    primary1Color: green500,
-    primary2Color: lime500
+    primary1Color: '#008738',
+    accent1Color: '#b0bb00'
   },
   appBar: {
     color: '#EEE'

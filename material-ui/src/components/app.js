@@ -64,17 +64,15 @@ export default class App extends Component {
                          />
             </div>
             <div>
-              <RaisedButton className="pull-xs-center" label="Continue" primary={true} />
-              <FontIcon className="glyphicon glyphicon-remove" />
-              <RaisedButton className="pull-xs-center" secondary={true} icon={<FontIcon className="glyphicon glyphicon-remove" />} />
-            </div>
-            <br />
-            <div>
-              <RaisedButton className="pull-xs-center"
+              <RaisedButton className="pull-xs-center" label="Continue" primary={true} style={{marginRight: 10}}/>
+              
+              <RaisedButton className="pull-xs-center" label="Clear" secondary={true} icon={<FontIcon className="glyphicon glyphicon-remove" />} style={{marginRight: 10}}/>
+                      <RaisedButton className="pull-xs-center"
                             label="Add to Cart"
                             onClick={this.onAddToCart.bind(this)}
                             />
             </div>
+
 
           </Paper>
         </div>
