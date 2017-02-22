@@ -34,28 +34,40 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Drawer open={this.state.open} docked={false} >
-          <AppBar></AppBar>
+        <Drawer open={this.state.open} docked={false}
+                onRequestChange={(open) => this.setState({open})}>
+          <AppBar
+            iconElementLeft={<IconButton iconClassName="fa fa-bars" onClick={this.handleToggle}></IconButton> }
+            />
         </Drawer>
+        
         <AppBar
-          iconElementLeft={
-              <IconButton onClick={this.handleToggle}>
-                </IconButton>
+          iconElementLeft={<IconButton iconClassName="fa fa-bars" onClick={this.handleToggle}></IconButton> }
+          title="Bee"
+          style={{boxShadow: 0}}
+          iconElementRight={
+              <Badge
+                  badgeContent={this.state.count}
+                  primary={true}
+                  badgeStyle={{}}
+                  style={{padding: 0, margin: 0}}>
+                  <IconButton iconClassName="fa fa-shopping-cart" style={{margin: 0, padding: 0}}/>
+                </Badge>
               }
-              title="LET'SPLAY"
-              iconElementRight={
-                  <Badge
-                      badgeContent={this.state.count}
-                      secondary={true}
-                      badgeStyle={{}}
-                      style={{padding: 0, margin: 0}}>
-                      <IconButton iconClassName="fa fa-shopping-cart" style={{margin: 0, padding: 0}}/>
-                    </Badge>
-                  }
-                  />
+              />
+
+        
+        <div style={{height: '200px', backgroundColor: '#EEE',  textAlign: 'center'}}>
+           <TextField 
+                         hintText="Start typing..."
+                         floatingLabelText="Enter person's identification number"
+                         />
+          </div>
+
+        
         <div className="container" style={{ textAlign: 'center' }}>
           
-          <Paper style={{  height: '300px', padding: '90px 30px', marginTop: '30px' }} zDepth={2}
+          <Paper style={{  height: '300px', padding: '90px 30px', marginTop: '30px' }} zDepth={1}
                  className="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
             <div>
               <TextField style={{ width: '100%',  }}
@@ -67,7 +79,7 @@ export default class App extends Component {
               <RaisedButton className="pull-xs-center" label="Continue" primary={true} style={{marginRight: 10}}/>
               
               <RaisedButton className="pull-xs-center" label="Clear" secondary={true} icon={<FontIcon className="glyphicon glyphicon-remove" />} style={{marginRight: 10}}/>
-                      <RaisedButton className="pull-xs-center"
+              <RaisedButton className="pull-xs-center"
                             label="Add to Cart"
                             onClick={this.onAddToCart.bind(this)}
                             />

@@ -21,7 +21,8 @@ const muiTheme = getMuiTheme({
     accent1Color: '#b0bb00'
   },
   appBar: {
-    color: '#EEE'
+    color: '#EEE',
+    textColor: '#008738'
   }
 });
 
